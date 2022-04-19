@@ -1,37 +1,16 @@
-## Welcome to GitHub Pages
+## Quintic Walk
 
-You can use the [editor on GitHub](https://github.com/bit-bots/quintic_walk/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This page aggrigates all information to the Hamburg Bit-Bots Quintic Walk software that is a simple-to-use walk controller for non-parallel bipedal robots.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Documentation
+Some documentation is directly included in the [code pacakge](https://github.com/bit-bots/bitbots_motion/blob/master/bitbots_quintic_walk/docs/index.rst).
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Parameter Optimization
+The optimized parameters for many robots are already included in the [software package](https://github.com/bit-bots/bitbots_motion/tree/master/bitbots_quintic_walk/config).
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+### Code
+The code for the walk controller itself is available [here](https://github.com/bit-bots/bitbots_motion/tree/master/bitbots_quintic_walk).
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bit-bots/quintic_walk/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+The code for the parameter optimization is available [here](https://github.com/bit-bots/parallel_parameter_search).
