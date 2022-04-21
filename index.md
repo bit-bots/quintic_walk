@@ -6,15 +6,6 @@ If you find any issues in the following documentation or are not able to run the
 ### Video
 TODO add video here
 
-### Code and Dependencies
-The code for the walk controller itself is available [here](https://github.com/bit-bots/bitbots_motion/tree/master/bitbots_quintic_walk).
-
-The code for the parameter optimization is available [here](https://github.com/bit-bots/parallel_parameter_search).
-
-The robot URDF models and MoveIt configurations are availalble [here](https://github.com/bit-bots/humanoid_robots_ros2).
-
-There are various dependencies that are needed to compile and to run the package. All are either available as binary package in Ubuntu or available as git submodules [here](https://github.com/bit-bots/bitbots_meta). 
-
 ### Tutorial
 
 #### Building (ROS 2 Version)
@@ -76,9 +67,14 @@ On a real robot (this will try to start our hardware interface too)
 ```
 ros2 launch bitbots_quintic_walk test.launch robot_type:=wolfgang
 ```
-In a simulation
+In a simulation (this requires Webots in the [RoboCup Humanoid League Virtual Season version](https://github.com/RoboCup-Humanoid-TC/webots/tree/release/projects/samples/contests/robocup) to be installed)
 ```
 ros2 launch bitbots_quintic_walk test.launch sim:=true robot_type:=wolfgang
+```
+And in a second terminal
+```
+source ~/dev_ws/install/setup.bash
+source ~/dev_ws/src/wolfgang_webots_sim/scripts/setenvs.sh
 ros2 launch wolfgang_webots_sim simulator.launch robot_type:=wolfgang
 ```
 Just as a visualization in RViz
@@ -119,12 +115,29 @@ while True:
 ### Parameter Optimization
 The optimized parameters for many robots are already included in the [software package](https://github.com/bit-bots/bitbots_motion/tree/master/bitbots_quintic_walk/config).
 
-TODO explain how to run a new optimization
+If you want to optimize the parameters yourself, you first need to build the packages (see above).
+Make sure that the colcon workspace and Webots is sourced in your terminal
+```
+source ~/dev_ws/install/setup.bash
+source ~/dev_ws/src/wolfgang_webots_sim/scripts/setenvs.sh
+```
+
+Now you can start the optimization process 
+```
+python3 ~/dev_ws/src/parallel_parameter_optimization/scripts/optimize_walk.py --type engine --robot bez --sim webots --sampler MOTPE --trials 1000 --storage mysql://root@localhost/example
+```
+The parameters allow you to specify the type of robot, simulator and sampler, as well as further arguments for Optuna. Use the `--help` option for more details.
+
+We highly recommend to use the [distributed optimization feature of Optuna](https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/004_distributed.html#distributed). This allows you to start the above command multiple times on the same or different computers, thus greatly increasing the speed of the optimization process. Additionally, it makes it possible to resume a study if some problem occured.
 
 ### Adding a new Robot Type
-
-TODO add tutorial
-
+If you want to use the approach on another robot, which is not yet supported, you need to do the following things.
+1. Create a robot description package containing the URDF (documentation on generating this from .proto models is [here](https://github.com/bit-bots/humanoid_robots_ros2/blob/master/README.md))
+2. Create a MoveIt configuration package containing configs for the IK solver (see also [here](https://github.com/bit-bots/humanoid_robots_ros2/blob/master/README.md) for more information)
+3. Provide some simulation with this robot model. The easiest way is to add it to the existing Webots interface. Look at the `__init__()` in `wolfgang_webots_sim/webots_robot_controller.py` and add your robot accordingly
+4. Compile the new packages
+5. Optimize the parameters as shown above
+6. Create a new config file in the bitbots_quintic_walk package with the optimized parameters
 
 ### Additional Documentation
-Some documentation is directly included in the [code pacakge](https://github.com/bit-bots/bitbots_motion/blob/master/bitbots_quintic_walk/docs/index.rst).
+Some (older) documentation is directly included in the [walk pacakge](https://github.com/bit-bots/bitbots_motion/blob/master/bitbots_quintic_walk/docs/index.rst).
