@@ -75,13 +75,18 @@ And in a second terminal
 ```
 source ~/dev_ws/install/setup.bash
 source ~/dev_ws/src/wolfgang_webots_sim/scripts/setenvs.sh
-ros2 launch wolfgang_webots_sim simulator.launch robot_type:=wolfgang
+ros2 launch wolfgang_webots_sim simulator.launch camera:=false robot_type:=wolfgang
 ```
 Just as a visualization in RViz
 ```
 ros2 launch bitbots_quintic_walk viz.launch robot_type:=wolfgang
 ```
 You can specify the robot type that you want to use by changing `wolfgang` to one of `{bez, chape, mrl_hsl, nao, nugus, op3, rfc, robotis, wolfgang}` 
+
+You can use teleop to control the robot 
+```
+ros2 run bitbots_teleop teleop_keyboard
+```
 
 #### Direct Code Interfaces
 You can directly call the code either in C++ or in Python.
