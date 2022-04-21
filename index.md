@@ -105,13 +105,21 @@ walk_parameters = get_parameters_from_ros_yaml("walking",
                                                f"{get_package_share_directory('bitbots_quintic_walk')}"
                                                f"/config/CONFIG_THAT_YOU_WANT.yaml",
                                                use_wildcard=True)
+# create the walk controller
 walk_controller = PyWalk("NAMESPACE", walk_parameters + moveit_parameters)
-while True:    
+
+while True:   
+    # here you would need to get the sensor information from your robot
+    
+    # call the walk controller with provided sensor data
     joint_command_msg = walk_controller.step(time_delta, 
                                        speed_command_msg,
                                        imu_msg,
                                        joint_state_msg,
                                        pressure_left_msg, pressure_right_msg)
+    # apply the joint goal positions on your robot 
+    
+    # optionally you can publish debug via ROS 2 to visualize it in PlotJuggler                                   
     walk_controller.publish_debug()                                            
 ```
 
