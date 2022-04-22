@@ -1,6 +1,6 @@
 ## Quintic Walk
 
-This page aggrigates all information to the Hamburg Bit-Bots Quintic Walk software that is a simple-to-use walk controller for non-parallel bipedal robots.
+This page aggregates all information to the Hamburg Bit-Bots Quintic Walk software that is a simple-to-use walk controller for non-parallel bipedal robots.
 If you find any issues in the following documentation or are not able to run the code, please open an [issue](https://github.com/bit-bots/quintic_walk/issues).
 
 ### Video
@@ -35,7 +35,7 @@ git clone https://github.com/bit-bots/ros2_python_extension.git
 Resolve further dependencies automatically
 ```
 cd ~/dev_ws 
-rosdep install -i --from-path src --rosdistro rolling -y
+rosdep install -i --from-paths src --rosdistro rolling -y
 ```
 
 Build the walk package
