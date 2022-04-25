@@ -153,4 +153,4 @@ If you want to use the approach on another robot, which is not yet supported, yo
 6. Create a new config file in the bitbots_quintic_walk package with the optimized parameters
 
 ### Additional Documentation
-Some (older) documentation is directly included in the [walk pacakge](https://github.com/bit-bots/bitbots_motion/blob/master/bitbots_quintic_walk/docs/index.rst).
+Some (older) documentation is directly included in the [walk package](https://github.com/bit-bots/bitbots_motion/blob/master/bitbots_quintic_walk/docs/index.rst).
