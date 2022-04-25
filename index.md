@@ -4,7 +4,7 @@ This page aggrigates all information to the Hamburg Bit-Bots Quintic Walk softwa
 If you find any issues in the following documentation or are not able to run the code, please open an [issue](https://github.com/bit-bots/quintic_walk/issues).
 
 ### Video
-https://cloud.mafiasi.de/s/HdpTFrgq55yzQn5
+A video, showing the different top speeds of the simulated robots as well as previous usages of the approach on simulated and real robots can be found [here](https://cloud.mafiasi.de/s/HdpTFrgq55yzQn5).
 
 ### Tutorial
 
