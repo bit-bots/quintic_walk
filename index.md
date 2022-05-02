@@ -6,6 +6,8 @@ If you find any issues in the following documentation or are not able to run the
 ### Video
 A video, showing the different top speeds of the simulated robots as well as previous usages of the approach on simulated and real robots can be found [here](https://cloud.mafiasi.de/s/HdpTFrgq55yzQn5).
 
+A präsentation of the walk controller and the paramter optimizaion can be found [here](https://www.youtube.com/watch?v=tp6xYrkInts).
+
 ### Tutorial
 
 #### Building (ROS 2 Version)
